@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Usuario</span>
+    <p id="notice"><%= notice %></p>
+    <p>Correo: <%= @user.email %></p>
+    <p class="truncate" >Imagen: <%= @user.image %></p>
+   	<p><img class="responsive-img" height="50" width="50" src="data:image;base64, <%= @user.image %>"></p>
+    <%= link_to 'Editar', edit_user_path(@user), :class => 'btn green' %>
+    <%= link_to 'Eliminar', @user, method: :delete, data: { confirm: 'Estas seguro?' }, :class => 'btn red' %>
+    <a href="<%= users_path %>" class="btn blue">Volver</a>
+  </div>
+</div>
+
