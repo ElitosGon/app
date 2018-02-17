@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Usuarios</span>
+    <p>Estemantenedor puede agregar usuarios, modificar usuario, eliminar usuario y listar usuarios.</p>
+  </div>
+  <div class="card-action">
+    <a href="<%= new_user_path %>" class="btn">Nuevo usuario</a>
+  </div>
+  <div class="card-content">
+    <table>
+      <thead>
+        <tr>
+          <th>Correo</th>
+          <th>Imagen</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.email %></td>
+            <td><img class="responsive-img" height="50" width="50" src="data:image;base64, <%= user.image %>"></td>
+            <td><%= link_to 'Editar', edit_user_path(user), :class => 'btn blue' %></td>
+            <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Estas seguro?' }, :class => 'btn red' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+
